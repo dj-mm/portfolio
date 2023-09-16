@@ -363,7 +363,7 @@ section .title::after{
     height: 100%;
     left: 0;
     top: 0;
-    background:rgb(33, 137, 255);
+    background:rgb(255, 96, 33);
 }
 .skills-content .right .html::before{
     width: 90%;
@@ -384,15 +384,22 @@ section .title::after{
 .skills-content .right .mysql::before{
     width: 50%;
 }
-.skills-content .right .aurduino::before{
-    width: 70%;
+.skills-content .right .dbms::before{
+    width: 60%;
 }
-.skills-content .right .bars::before{
+.skills-content .right .arduino::before{
     width: 50%;
 }
-.skills-content .right .bars::before{
-    width: 70%;
+.skills-content .right .react::before{
+    width: 60%;
 }
+.skills-content .right .python::before{
+    width: 60%;
+}
+.skills-content .right .django::before{
+    width: 65%;
+}
+
 /* teams section styling */
 .teams .title::after{
     content: "Completed";
