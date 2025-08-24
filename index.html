@@ -285,28 +285,58 @@
                     </div>
                 </div>
                 <div class="column right">
-                    <div class="text">Message me</div>
-                    <form action="#">
-                        <div class="fields">
-                            <div class="field name">
-                                <input type="text" placeholder="Name" required>
-                            </div>
-                            <div class="field email">
-                                <input type="email" placeholder="Email" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <input type="text" placeholder="Subject" required>
-                        </div>
-                        <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
-                        </div>
-                        <div class="button-area">
-                            <button type="submit">Send message</button>
-                        </div>
-                    </form>
-                    <!-- <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="manash-mishra-918542221" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/manash-mishra-918542221?trk=profile-badge">Manash Mishra</a></div> -->
-                </div>
+  <div class="text">Message me</div>
+  <form id="contactForm">
+    <div class="fields">
+      <div class="field name">
+        <input type="text" id="name" placeholder="Name" required>
+      </div>
+      <div class="field email">
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+    </div>
+    <div class="field">
+      <input type="text" id="subject" placeholder="Subject" required>
+    </div>
+    <div class="field textarea">
+      <textarea id="message" cols="30" rows="10" placeholder="Message.." required></textarea>
+    </div>
+    <div class="button-area">
+      <button type="submit">Send message</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbx2vwZzEOIqvdCwujMCGNRHpLYwtlhqOvO2QlHOtkLm3QWs98QRLDSLmiksPRDj_Ptahw/exec"; // Replace with your Google Apps Script Web App URL
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      subject: document.getElementById("subject").value,
+      message: document.getElementById("message").value
+    };
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(response => {
+      alert("Message sent successfully!");
+      form.reset();
+    })
+    .catch(error => {
+      alert("Error sending message. Please try again.");
+      console.error(error);
+    });
+  });
+</script>
+
             </div>
         </div>
         
@@ -324,3 +354,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
